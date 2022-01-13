@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import BookItem from './book/BookItem';
+import BookItemList from './book/BookItemList';
+import NavBar from './navbar/NavBar';
+const DUMMY_BOOKS=[
+  {
+    title:'Harry Potter and Prisoner of Askaban',
+    description:'Third book of Harry Potter',
+    imageUrl:"https://images-na.ssl-images-amazon.com/images/I/81EbEWM54ML.jpg"
+  },
+  {
+    title:'Harry Potter and Chamber of secrets',
+    description:'Second book of Harry Potter',
+    imageUrl:"https://cdn.hmv.com/r/w-640/hmv/files/ee/ee0a6931-ce04-4bde-857b-f6e8f5fadc27.jpg"
+  },
+  {
+    title:'Harry Potter and Sorcerer\'s stone',
+    description:'First book of Harry Potter',
+    imageUrl:"https://i5.walmartimages.com/asr/b6ab96db-027d-44b4-9d55-4a0207d71148.bcb30969d95f6f4c265af10831f0f2d6.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+  },
+  {
+    title:'Harry Potter and Half Blood Prince',
+    description:'Fifth book of Harry Potter',
+    imageUrl:"https://i5.walmartimages.com/asr/b6ab96db-027d-44b4-9d55-4a0207d71148.bcb30969d95f6f4c265af10831f0f2d6.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+  },
+
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
+    <BookItemList books={DUMMY_BOOKS}/>
     </div>
   );
 }
