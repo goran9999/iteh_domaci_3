@@ -1,6 +1,10 @@
 import React from 'react'
 import { Button, Card, Grid,TextField } from '@mui/material'
 import { makeStyles } from '@mui/styles'
+import { useDispatch } from 'react-redux'
+import { bookActions } from '../slice/book-slice'
+import { useNavigate } from 'react-router'
+import { useRef } from 'react'
 const AddBook = () => {
     
     const useStyles=makeStyles({
@@ -26,26 +30,46 @@ const AddBook = () => {
     })
 
     const classes=useStyles();
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
+    const titleRef=useRef();
+    const imageUrlRef=useRef();
+    const descRef=useRef();
+
     
+
+    const saveBook = (event) =>{
+        event.preventDefault();
+       
+        const book={
+            id:new Date().toISOString(),
+            title:titleRef.current.value,
+            imageUrl:imageUrlRef.current.value,
+            description:descRef.current.value
+        }
+       
+        dispatch(bookActions.addBook({book:book}))
+       
+    }
     
     return (
-        <form className={classes.container}>
+        <form onSubmit={saveBook} className={classes.container}>
                 <Card className={classes.card}>
                 <Grid className={classes.grid} container spacing={4}>
                     <Grid item xs={12}>
-                    <TextField id="outlined-basic" label="Book title" variant="outlined" />
+                    <TextField inputRef={titleRef} id="outlined-basic" label="Book title" variant="outlined" />
                     </Grid>
                     <Grid item xs={12}>
-                    <TextField id="outlined-basic" label="Image url" variant="outlined" />
+                    <TextField inputRef={imageUrlRef} id="outlined-basic" label="Image url" variant="outlined" />
                     </Grid>
                     <Grid item xs={12}>
                     
                     </Grid>
                     <Grid item xs={12}>
-                    <TextField id="outlined-multiline-static" label="Description" multiline rows={4}/>
+                    <TextField inputRef={descRef} id="outlined-multiline-static" label="Description" multiline rows={4}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button className={classes.button} variant="contained">Save Book</Button>
+                        <Button type='submit' className={classes.button} variant="contained">Save Book</Button>
                     </Grid>
                 </Grid>
                 </Card>

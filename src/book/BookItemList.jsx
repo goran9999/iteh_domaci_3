@@ -19,8 +19,9 @@ const BookItemList = (props) => {
     return (
         <Grid className={classes.container} container spacing={6}>
             {props.books.map(book=>{
-                return <Grid item xs={4}>
-                    <BookItem title={book.title}
+                return <Grid item xs={4} key={book.id}>
+                    <BookItem 
+                    title={book.title}
                     description={book.description}
                     imageUrl={book.imageUrl}/>
                 </Grid>
