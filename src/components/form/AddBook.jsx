@@ -3,6 +3,7 @@ import { Button, Card, Grid,TextField } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { useDispatch } from 'react-redux'
 import { bookActions } from '../../slice/book-slice'
+import { useNavigate } from 'react-router'
 import { useRef } from 'react'
 const AddBook = () => {
     
@@ -35,7 +36,7 @@ const AddBook = () => {
     const imageUrlRef=useRef();
     const descRef=useRef();
     const pageRef=useRef();
-
+    const navigate=useNavigate();
     
 
     const saveBook = (event) =>{
@@ -50,6 +51,7 @@ const AddBook = () => {
         }
        
         dispatch(bookActions.addBook({book:book}))
+        navigate('/all-books');
        
     }
     
