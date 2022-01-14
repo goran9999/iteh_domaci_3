@@ -2,8 +2,7 @@ import React from 'react'
 import { Button, Card, Grid,TextField } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { useDispatch } from 'react-redux'
-import { bookActions } from '../slice/book-slice'
-import { useNavigate } from 'react-router'
+import { bookActions } from '../../slice/book-slice'
 import { useRef } from 'react'
 const AddBook = () => {
     
@@ -31,10 +30,10 @@ const AddBook = () => {
 
     const classes=useStyles();
     const dispatch=useDispatch();
-    const navigate=useNavigate();
     const titleRef=useRef();
     const imageUrlRef=useRef();
     const descRef=useRef();
+    const pageRef=useRef();
 
     
 
@@ -45,6 +44,7 @@ const AddBook = () => {
             id:new Date().toISOString(),
             title:titleRef.current.value,
             imageUrl:imageUrlRef.current.value,
+            pageCount:pageRef.current.value,
             description:descRef.current.value
         }
        
@@ -63,7 +63,7 @@ const AddBook = () => {
                     <TextField inputRef={imageUrlRef} id="outlined-basic" label="Image url" variant="outlined" />
                     </Grid>
                     <Grid item xs={12}>
-                    
+                    <TextField inputRef={pageRef} id="outlined-number" type="number" label="Page count" variant="outlined" />
                     </Grid>
                     <Grid item xs={12}>
                     <TextField inputRef={descRef} id="outlined-multiline-static" label="Description" multiline rows={4}/>

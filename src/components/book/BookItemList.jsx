@@ -3,6 +3,7 @@ import React from 'react'
 import BookItem from './BookItem'
 import { makeStyles } from '@mui/styles';
 
+
 const BookItemList = (props) => {
 
   
@@ -15,13 +16,16 @@ const BookItemList = (props) => {
     })
     
     const classes=useStyles();
+   
 
     return (
         <Grid className={classes.container} container spacing={6}>
             {props.books.map(book=>{
                 return <Grid item xs={4} key={book.id}>
                     <BookItem 
+                    id={book.id}
                     title={book.title}
+                    pageCount={book.pageCount}
                     description={book.description}
                     imageUrl={book.imageUrl}/>
                 </Grid>

@@ -1,9 +1,10 @@
 import { Navigate, Route, Routes} from 'react-router';
 import './App.css';
-import BookItemList from './book/BookItemList';
-import NavBar from './navbar/NavBar';
-import AddBook from './form/AddBook';
+import BookItemList from './components/book/BookItemList';
+import NavBar from './components/navbar/NavBar';
+import AddBook from './components/form/AddBook';
 import { useSelector } from 'react-redux';
+import ReadingList from './components/reading/ReadingList';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
       </Route>
       <Route path='/all-books' element={<BookItemList books={books}/>}/>
       <Route path="/add-book" element={<AddBook/>}/>
-        
+      <Route path="currently-reading" element={<ReadingList/>}/>
       </Routes>
       
     
