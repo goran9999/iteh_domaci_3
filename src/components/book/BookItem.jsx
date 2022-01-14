@@ -9,9 +9,9 @@ const BookItem = (props) => {
 
     const useStyles=makeStyles({
         media: {           
-            height: 320,     
+            height: 500,     
             width: '90%',
-            marginLeft:'5%'
+            
            
             
           },
@@ -36,7 +36,7 @@ const BookItem = (props) => {
             id:props.id,
             title:props.title,
             description:props.description,
-            pageCount:props.pageCount,
+            pageCount:+props.pageCount,
             imageUrl:props.imageUrl
 
         }
@@ -45,10 +45,10 @@ const BookItem = (props) => {
 
     return (
         <Card className={classes.card} variant='outlined'>
-            <CardHeader>{props.title}</CardHeader>
+            <CardHeader  title={props.title}/>
             <CardMedia  className={classes.media} image={props.imageUrl} component='img' />
             <CardContent>
-                <Typography variant='p'>
+                <Typography variant='h6'>
                     {props.description}
                 </Typography>
             </CardContent>

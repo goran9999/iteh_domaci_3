@@ -11,7 +11,8 @@ const AddBook = () => {
             marginTop:'3rem',
             width:'50%',
             marginLeft:'auto',
-            marginRight:'auto'
+            marginRight:'auto',
+            
         },
         card:{
             padding:'50px'
@@ -53,23 +54,23 @@ const AddBook = () => {
     }
     
     return (
-        <form onSubmit={saveBook} className={classes.container}>
-                <Card className={classes.card}>
+        <form  onSubmit={saveBook} className={classes.container}>
+                <Card  className={classes.card}>
                 <Grid className={classes.grid} container spacing={4}>
                     <Grid item xs={12}>
-                    <TextField inputRef={titleRef} id="outlined-basic" label="Book title" variant="outlined" />
+                    <TextField style={{width:'400px'}} inputRef={titleRef} id="outlined-basic" label="Book title" variant="outlined" />
                     </Grid>
                     <Grid item xs={12}>
-                    <TextField inputRef={imageUrlRef} id="outlined-basic" label="Image url" variant="outlined" />
+                    <TextField style={{width:'400px'}} inputRef={imageUrlRef} id="outlined-basic" label="Image url" variant="outlined" />
                     </Grid>
                     <Grid item xs={12}>
-                    <TextField inputRef={pageRef} id="outlined-number" type="number" label="Page count" variant="outlined" />
+                    <TextField style={{width:'400px'}} inputRef={pageRef} id="outlined-number" type="number" label="Page count" variant="outlined" />
                     </Grid>
                     <Grid item xs={12}>
-                    <TextField inputRef={descRef} id="outlined-multiline-static" label="Description" multiline rows={4}/>
+                    <TextField style={{width:'400px'}} inputRef={descRef} id="outlined-multiline-static" label="Description" multiline rows={4}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button type='submit' className={classes.button} variant="contained">Save Book</Button>
+                        <Button style={{width:'400px'}} type='submit' className={classes.button} variant="contained">Save Book</Button>
                     </Grid>
                 </Grid>
                 </Card>
