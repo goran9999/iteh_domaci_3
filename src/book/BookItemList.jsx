@@ -8,7 +8,9 @@ const BookItemList = (props) => {
   
     const useStyles=makeStyles({
         container:{
-          textAlign:'center'
+          textAlign:'center',
+          marginTop:'3rem',
+          marginBottom:'3rem'
         }
     })
     

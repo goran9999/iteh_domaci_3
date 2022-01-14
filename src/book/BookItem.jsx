@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import {Card, CardActions, CardContent, CardHeader, CardMedia, Icon, IconButton, Typography} from '@mui/material'
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { makeStyles } from '@mui/styles';
@@ -7,7 +8,8 @@ const BookItem = (props) => {
     const useStyles=makeStyles({
         media: {           
             height: 320,     
-            width: '30%',
+            width: '90%',
+            marginLeft:'5%'
            
             
           },
@@ -18,7 +20,15 @@ const BookItem = (props) => {
           }
     })
 
+    const [reading,setReading] = useState(false);
+
     const classes=useStyles();
+
+    const addToReading = () =>{
+        setReading(prevState=>{
+            return !prevState
+        })
+    }
 
     return (
         <Card className={classes.card} variant='outlined'>
@@ -30,8 +40,8 @@ const BookItem = (props) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <IconButton>
-                    <Icon><MenuBookIcon/></Icon>
+                <IconButton onClick={addToReading}>
+                    <Icon><MenuBookIcon color={!reading?'primary':'success'}/></Icon>
                 </IconButton>
             </CardActions>
         </Card>

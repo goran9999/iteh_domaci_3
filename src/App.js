@@ -1,7 +1,8 @@
+import { Navigate, Route, Routes} from 'react-router';
 import './App.css';
-import BookItem from './book/BookItem';
 import BookItemList from './book/BookItemList';
 import NavBar from './navbar/NavBar';
+import AddBook from './form/AddBook';
 const DUMMY_BOOKS=[
   {
     title:'Harry Potter and Prisoner of Askaban',
@@ -30,7 +31,15 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-    <BookItemList books={DUMMY_BOOKS}/>
+      <Routes>
+      <Route exact path="/" element={ <Navigate to="/all-books"/>}>
+      </Route>
+      <Route path='/all-books' element={<BookItemList books={DUMMY_BOOKS}/>}/>
+      <Route path="/add-book" element={<AddBook/>}/>
+        
+      </Routes>
+      
+    
     </div>
   );
 }

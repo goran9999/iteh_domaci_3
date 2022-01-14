@@ -1,14 +1,28 @@
 import React from 'react'
-import { AppBar,Container,Toolbar,Typography } from '@mui/material'
+import { AppBar,Box,Toolbar,Typography,Button, Container } from '@mui/material'
+import { makeStyles } from '@mui/styles'
+import { Link } from 'react-router-dom'
 const NavBar = () => {
+
+    const useStyles=makeStyles({
+        container:{
+           width:'100px'
+        }
+    })
+    const classes=useStyles();
     return (
-        <AppBar>
-        <Container>
-            <Toolbar>
-                <Typography variant='h6'>Books</Typography>
-            </Toolbar>
-        </Container>
-    </AppBar>
+       
+        <AppBar  position="static">
+          <Toolbar >
+           <Typography variant='h6'>Books</Typography>
+           <Container className={classes.container} >
+           <Link to="/all-books"><Button  color="inherit">All books</Button></Link>
+            <Link to="/add-book"><Button color="inherit">Add book</Button></Link>
+            <Button color="inherit">Currently reading</Button>
+           </Container>
+          </Toolbar>
+        </AppBar>
+    //   </Box>
     )
 }
 
